@@ -1,0 +1,94 @@
+.body, body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(202, 201, 201);
+    margin: 0;
+}
+
+.home-link {
+    position: absolute; /* placed relative to .container */
+    top: 16px;
+    left: 16px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.home-link img {
+    width: 48px;
+    height: auto;
+    transition: transform 0.15s ease;
+}
+
+.home-link:hover img {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width:768px) {
+    .home-link {
+        top: 12px;
+        left: 12px;
+    }
+    .home-link img {
+        width: 44px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .home-link img {
+        width: 40px;
+    }
+}
+.container {
+    position: relative; /* ensure absolutely positioned children are relative to this card */
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 100px auto;
+    border: 1px solid #ddd;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+input, textarea {
+    margin: 10px 0;
+    padding: 15px; /* Increased padding */
+    width: calc(100% - 30px); /* Adjusted for padding */
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 16px; /* Increased font size */
+}
+
+input[type="file"] {
+    padding: 5px; /* Adjust padding for file input */
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    padding: 15px; /* Increased padding */
+    background-color: #333131;
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px; /* Increased font size */
+}
+
+button:hover {
+    background-color: #747474;
+}
+
+#orderOutput {
+    margin-top: 20px;
+    text-align: center;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-img">
+                <img src="./Pictures/default-avater.png" alt="Profile Picture" id="profile-picture">
+                <div class="edit-avatar">
+                    <label for="avatar-upload">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                </div>
+            </div>
+            <div class="profile-nav">
+                <button class="edit-profile-btn">Edit Profile</button>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="basic-info">
+                <h1 class="user-name">John Doe</h1>
+                <p class="user-handle">@johndoe</p>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>New York, USA</span>
+                </div>
+            </div>
+
+            <div class="bio-section">
+                <h2>About Me</h2>
+                <p class="bio-text">Hello! I'm a passionate individual who loves technology and connecting with people. Feel free to reach out!</p>
+            </div>
+
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>john.doe@email.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <h2>Social Media</h2>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
