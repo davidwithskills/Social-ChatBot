@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot UI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar: vertical on desktop, top bar on mobile -->
+        <aside class="sidebar" role="navigation" aria-label="Main navigation">
+            <a href="../Home/Home.html" class="home-link" title="Home">
+                <img src="../Chat 1/Pictures/4.jpg" alt="Home" onerror="this.style.opacity=0.6">
+            </a>
+            <!-- add other nav icons here if desired -->
+        </aside>
+
+        <!-- Main content container -->
+        <main class="container" role="main">
+            <header style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <h1 style="font-size:1.1rem;margin:0;color:#111827;">Ben</h1>
+                <small style="color:#6b7280">Welcome back</small>
+            </header>
+
+            <!-- CHAT CONTAINER -->
+            <section class="chat-container">
+                <div class="chat-messages">
+                    <div class="message bot">Hello! How can I assist you today?</div>
+                    <div class="message user">I need help with my account.</div>
+                    <div class="message bot">Sure! Please describe the issue.</div>
+                    <div class="message user">I need help with my account login.</div>
+                </div>
+
+                <div class="chat-input">
+                    <input type="text" placeholder="Type your message...">
+                    <button>Send</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="Chat 1.js"></script>
+</body>
+</html>

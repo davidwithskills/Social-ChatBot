@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Profile-signup.css">
+</head>    
+    <body>
+        <div class="container">
+            <a class="home-link" href="../index.html"><img src="./Pictures/4.jpg" alt="Home"></a>
+        
+            <h1>Add Profile Picture</h1>
+
+            <div class="profile-img">
+                    <img src="./Pictures/default-avater.png" alt="Profile Picture" id="profile-picture">
+                    <div class="edit-avatar">
+                        <label for="avatar-upload">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                        <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                    </div>
+            </div>
+
+            <!-- Live preview of the public handle while typing -->
+            <div id="user-handle-preview" class="user-handle-preview" aria-live="polite">@username</div>
+        <form id="signupForm">
+            <label for="userid">User id:</label>
+            <input type="text" id="username" placeholder="username" aria-describedby="userid-hint" required>
+            <p id="userid-hint" class="input-hint">User id (public handle) — this won't change your display name.</p>
+
+            <button type="submit">Sign-Up</button>
+        </form>
+        <h5>Or <a href="../Home/Home.html">Skip</a></h5>        
+    </div>
+    <script src="Profile-signup.js"></script>
+    </body>
+</html>
+
+

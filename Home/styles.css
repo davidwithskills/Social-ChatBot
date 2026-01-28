@@ -1,0 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url('../Home/Pictures/2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container header {
+    background: transparent;
+    color: #000000;
+    padding: 1rem 0;
+    text-align: center;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column; /* <-- Add this */
+    align-items: center;
+    justify-content: center;
+    min-height: 20px;       /* increase height for spacing */
+    height: 60px;
+}
+
+
+header:hover{
+    background-color: rgba(207,207,207,0.12);
+}
+
+
+nav {
+    margin: 1rem 0;
+}
+
+nav a {
+    color: #000000;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    max-width:900px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.92);
+}
+
+.service {
+    background: rgba(255,255,255,0.98);
+    border-radius: 14px;
+    padding: 16px;
+    margin: 10px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+footer {
+    opacity: 50%;
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 40px;
+
+}
+
+footer address {
+    font-style: bold;
+}
+
+@media (max-width: 550px) {
+
+    header {
+        display: flex;
+        flex-direction: column; /* stack title above nav */
+        align-items: center;    /* center title + nav */
+        justify-content: center;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;    /* keep links in one line */
+        justify-content: center;/* center them */
+        flex-wrap: wrap;        /* allow wrapping if screen too small */
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    nav a {
+        margin: 0;
+        text-align: center;
+    }
+}
+
+
+/* --- Layout & responsive fixes (mobile-first adjustments for the Home layout) --- */
+.layout { display: flex; min-height: 100vh; }
+
+/* Desktop sidebar (keeps the existing visual style if present) */
+.sidebar {
+    width: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+    gap: 1rem;
+}
+
+/* Make the container centered and constrained on large screens */
+.container {
+    max-width: 1000px;
+    margin: 32px auto;
+    padding: 20px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 20px;
+}
+
+/* Mobile: convert sidebar to a fixed top bar and push content down */
+@media (max-width: 700px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        padding: 0 12px;
+        background: linear-gradient(180deg, #808288 0%, #3b4c83 100%);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+        z-index: 1000;
+    }
+
+    /* Add safe-area offset for devices with notches */
+    .container {
+        padding-top: calc(16px + 56px + env(safe-area-inset-top));
+        margin: 0 12px 16px;
+        border-radius: 14px;
+    }
+
+    /* Ensure the chat area fills the remaining viewport height and is scrollable */
+    .container .chat-container {
+        height: calc(100vh - (56px + 48px)); /* topbar + some bottom spacing */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-messages {
+        flex: 1 1 auto;
+        overflow-y: auto;
+    }
+
+    /* Make input area stick to the bottom of the chat container */
+    .chat-input {
+        flex: 0 0 auto;
+        background: rgba(255,255,255,0.95);
+    }
+}
+
+/* Small phones: tighten paddings */
+@media (max-width: 420px) {
+    .container { padding-left: 10px; padding-right: 10px; }
+    .chat-input input { padding: 10px; }
+}

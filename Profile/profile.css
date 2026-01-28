@@ -1,0 +1,415 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f4f6; /* gray-100 */
+    color: #1e293b; /* slate-800 */
+}
+
+/* Flex layout for sidebar + main content */
+.layout {
+    display: flex;
+    gap: 0;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 80px;
+    background: linear-gradient(180deg, #808288 0%, #3b4c83 100%);
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    position: sticky;
+    top: 0;
+    box-shadow: 2px 0 12px rgba(37,99,235,0.15);
+}
+
+.sidebar .home-link {
+    position: static;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.sidebar .home-link:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+}
+
+.sidebar .home-link img {
+    width: 40px;
+    height: auto;
+}
+
+.container {
+    flex: 1;
+    width: 90%;
+    padding: 2rem 1rem;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-header {
+    background: linear-gradient(180deg, #808288 0%, #3b4c83 100%);
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    padding: 4rem 2rem 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    box-shadow: 0 4px 24px rgba(37,99,235,0.10);
+    position: relative;
+    min-height: 280px;
+    overflow: visible;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.profile-img {
+    position: absolute; /* place avatar overlapping the banner */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -75px; /* overlap into the following card */
+    width: 150px;
+    height: 150px;
+    z-index: 3;
+}
+
+/* Desktop-specific alignment tweaks */
+@media (min-width: 1000px) {
+    .profile-img {
+        left: 3rem; /* a bit more inset on large desktops */
+        bottom: -80px; /* slight extra overlap for visual balance */
+        width: 170px;
+        height: 170px;
+    }
+
+    /* .profile-nav and .edit-profile-btn removed as button is gone */
+}
+
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none; /* removed white border around avatar as requested */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.edit-avatar {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: #fff;
+    width: 40px; /* bigger clickable area */
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;  /* IMPORTANT: put above avatar */
+}
+
+.edit-avatar label {
+    width: 100%;     /* make label occupy full circle */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.profile-img img {
+    pointer-events: none; /* prevent image from blocking clicks */
+}
+
+
+.edit-avatar i {
+    color: #1a73e8;
+}
+
+/* .edit-profile-btn removed as button is gone */
+
+.profile-content {
+    margin-top: 5.5rem; /* make room for avatar overlap */
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px 0 rgba(37,99,235,0.07);
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Banner upload controls */
+.banner-controls {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    z-index: 5;
+}
+
+.banner-upload-label {
+    background: rgba(255,255,255,0.95);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.banner-upload-label i { font-size: 18px; }
+
+.remove-banner {
+    background: rgba(255,255,255,0.85);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    /* keep avatar overlapping but slightly smaller on very small screens */
+    .profile-img {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -70px;
+        width: 120px;
+        height: 120px;
+    }
+    .banner-controls { right: 10px; top: 10px; }
+    .profile-header { padding: 3.5rem 1rem 1.2rem 1rem; }
+    .profile-content { margin-top: 5.8rem; }
+}
+
+.basic-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.user-name {
+    font-size: 2rem;
+    color: #1c1e21;
+    margin-bottom: 0.5rem;
+}
+
+.user-handle {
+    color: #65676b;
+    margin-bottom: 1rem;
+}
+
+.location {
+    color: #65676b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.bio-section, .contact-info, .social-links {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: #1c1e21;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.bio-text {
+    color: #65676b;
+    line-height: 1.5;
+}
+
+.bio-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.bio-edit-btn {
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.bio-edit-btn:hover { opacity: 0.95; }
+
+.bio-error {
+    color: #b91c1c;
+    margin-top: 6px;
+    font-size: 0.95rem;
+}
+
+.bio-counter {
+    font-size: 0.9rem;
+    color: #6b7280; /* gray-500 */
+    text-align: right;
+}
+
+.editable-bio-wrapper textarea:focus {
+    outline: 2px solid rgba(59,130,246,0.25);
+}
+
+.editable-bio-wrapper .bio-save-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    color: #65676b;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a73e8;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #1a73e8;
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    /* On tablets and small laptops: stack header content and center avatar */
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 3.5rem 1rem 1.2rem 1rem;
+        min-height: 220px;
+        align-items: center;
+    }
+
+    /* Make avatar participate in flow (not absolute) so it centers correctly */
+    .profile-img {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        margin: 0 auto;
+        width: 130px;
+        height: 130px;
+        z-index: 3;
+    }
+
+    .profile-content { margin-top: 2.5rem; }
+    .banner-controls { right: 10px; top: 10px; }
+}
+
+.home-link {
+    position: absolute; /* placed relative to .container */
+    top: 16px;
+    left: 300px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.home-link img {
+    width: 48px;
+    height: auto;
+    transition: transform 0.15s ease;
+}
+
+.home-link:hover img {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width:768px) {
+    .home-link {
+        top: 12px;
+        left: 12px;
+    }
+    .home-link img {
+        width: 44px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .home-link img {
+        width: 40px;
+    }
+}
+
+/* Styles for editable bio textarea and controls */
+.editable-bio-wrapper textarea {
+    font-family: inherit;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    resize: vertical;
+}
+.editable-bio-wrapper .bio-save-btn,
+.editable-bio-wrapper .bio-cancel-btn {
+    margin-right: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+.editable-bio-wrapper .bio-save-btn {
+    background: #1a73e8;
+    color: #fff;
+}
+.editable-bio-wrapper .bio-cancel-btn {
+    background: #e5e7eb;
+    color: #111827;
+}
